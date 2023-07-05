@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, props } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducers';
 import * as actions from '../contador.actions';
 
@@ -22,19 +22,20 @@ export class HijoComponent implements OnInit {
   }
   multiplicar(){
     //this.contador *= 2
-    this.store.dispatch(actions.multiply())
+    this.store.dispatch(actions.multiply({numero:2}))
     // this.cambioContador.emit(this.contador)
   }
 
   dividir():void{
     //this.contador /= 2
-    this.store.dispatch(actions.divide())
+    this.store.dispatch(actions.divide({numero:2}))
     // this.cambioContador.emit(this.contador)
   }
 
   // resetHijo(event:number):void{
-  //   this.contador = event
-  //   this.cambioContador.emit(this.contador);
+  //   // this.contador = event
+  //   // this.cambioContador.emit(this.contador);
+  //   this.store.dispatch(actions.reset())
   // }
 
  
